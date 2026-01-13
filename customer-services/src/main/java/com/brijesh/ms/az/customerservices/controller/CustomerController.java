@@ -17,8 +17,8 @@ public class CustomerController {
         this.customerServices= customerServices;
     }
 
-    @GetMapping("/customer/{id}")
-    public Customer getCustomerDetailsById(@PathVariable String id){
+    @GetMapping("/customer")
+    public Customer getCustomerDetailsById(){
         return customerServices.getCustomerDetailsById();
     }
 }
