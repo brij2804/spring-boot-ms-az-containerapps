@@ -23,5 +23,5 @@ jobs:
       # 3. Build and Push the image
       - name: Build and Push Docker Image
         run: |
-          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/customerImageRegistry:${{ github.sha }}
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/customerImageRegistry:${{ github.sha }}
+          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
