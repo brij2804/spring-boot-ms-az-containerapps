@@ -47,8 +47,8 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
+     #   cache-from: type=gha
+      #  cache-to: type=gha,mode=max
       #run: |
        # docker login ${{ secrets.ACR_LOGIN_SERVER }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
        # docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
