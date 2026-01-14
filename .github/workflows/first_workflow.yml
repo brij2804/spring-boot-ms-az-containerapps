@@ -39,14 +39,18 @@ jobs:
         login-server: ${{ secrets.ACR_LOGIN_SERVER }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
+      run: |
+        docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
+        docker push ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
+      
 
       # 6. Build and Push the image
-    - name: Build and Push Docker Image
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        push: true
-        tags: ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
+    #- name: Build and Push Docker Image
+     # uses: docker/build-push-action@v6
+     # with:
+      #  context: .
+      #  push: true
+      #  tags: ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
      #   cache-from: type=gha
       #  cache-to: type=gha,mode=max
       #run: |
