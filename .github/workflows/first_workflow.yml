@@ -26,24 +26,24 @@ jobs:
       run: mvn clean install --file pom.xml
 
       # 4. Upload a Build Artifact
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v6.0.0
-      with:
+   # - name: Upload a Build Artifact
+     # uses: actions/upload-artifact@v6.0.0
+     # with:
        # Artifact name
-       name: customer-services
+     #  name: customer-services
 
       # 5. Log in to Azure Container Registry
-    - name: Log in to ACR
-      uses: azure/docker-login@v2
-      with:
-        login-server: ${{ secrets.ACR_LOGIN_SERVER }}
-        username: ${{ secrets.ACR_USERNAME }}
-        password: ${{ secrets.ACR_PASSWORD }}
-      
+    #- name: Log in to ACR
+     # uses: azure/docker-login@v2
+     # with:
+      #  login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+     #   username: ${{ secrets.ACR_USERNAME }}
+     #   password: ${{ secrets.ACR_PASSWORD }}
+
       # 6. Build and Push the image
-    - name: Build and Push Docker Image
-      run: |
-        docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
-        docker push ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
+  #  - name: Build and Push Docker Image
+    #  run: |
+       # docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
+       # docker push ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
      
           
