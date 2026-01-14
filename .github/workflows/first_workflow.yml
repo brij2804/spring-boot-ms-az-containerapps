@@ -15,8 +15,16 @@ jobs:
     - name: Setup Java JDK
       uses: actions/setup-java@v5.1.0
       with:
-       # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
-       java-version: 17          
+       java-version: 17
+       distribution: 'temurin'
+       cache: maven
     
-    - name: Build
-      run: echo "Building the project..."
+    - name: Build with Maven
+      run: mvn clean install --file pom.xml
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v6.0.0
+      with:
+       # Artifact name
+       name: customer-services
+          
