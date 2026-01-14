@@ -39,8 +39,13 @@ jobs:
         login-server: ${{ secrets.ACR_LOGIN_SERVER }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-    - run: |
+
+    - name: Docker Build
+      run: |
         docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
+
+    - name: Docker Push To Azure
+      run: |  
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/customer-services:0.0.1-SNAPSHOT
       
 
