@@ -41,7 +41,7 @@ jobs:
         password: ${{ secrets.ACR_PASSWORD }}
 
     - name: Log in to ACR
-      run:|
+      run: |
        az acr login --name customerimageregistry
        az acr build --registry customerimageregistry --image customer-services:0.0.1-SNAPSHOT .      
        docker push customerimageregistry.azurecr.io/customer-services:0.0.1-SNAPSHOT
