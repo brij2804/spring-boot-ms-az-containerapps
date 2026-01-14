@@ -42,9 +42,12 @@ jobs:
 
     -name: Log in to ACR
      run:|
-       az acr login --name ${{ secrets.ACR_LOGIN_SERVER }}
+       az acr login --name customerimageregistry
+       az acr build --registry customerimageregistry --image customer-services:0.0.1-SNAPSHOT .      
+       docker push customerimageregistry.azurecr.io/customer-services:0.0.1-SNAPSHOT
 
-   # - name: Set up Docker Buildx
+
+      # - name: Set up Docker Buildx
    #   uses: docker/setup-buildx-action@v3
 
     #- name: Build and push image
